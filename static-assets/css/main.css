@@ -4,7 +4,10 @@
    Author's custom styles
    ========================================================================== */
 
-
+.navbar-inverse .navbar-brand {
+    color: lawngreen;
+    font-weight: 400;
+}
 
 
 
