@@ -6,71 +6,99 @@
 
 
 {% block content %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
-
-
+    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="intro-header">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Give Get Green</h1>
+                        <h1>{{ title }}</h1>
                         <h4>a crowd sourced donation service <br>designed to promote the principles of reuse and recycling</h4>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg btn-landing"><span class="give-button">Give</span></a>
+                            <li id="give-button">
+                                <a href="#giveForm" class="btn btn-default btn-lg btn-landing"><span >Give</span></a>
                             </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg btn-landing"><span class="get-button">Get</span></a>
+                            <li id="get-button">
+                                <a href="#searchForm" class="btn btn-default btn-lg btn-landing"><span>Get</span></a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
-{#<div class="content-section-b">#}
-{##}
-{#    <div class="container">#}
-{#        <h2>{{ some_dynamic_value }}</h2>#}
-{##}
-{#        <p>Our application will service all three of the Rs in various ways, primarily by connecting people who have objects they no longer need with those who might actually want them.An old cell phone, a television, some furniture, and a mattress are all commonly discarded items that could be extremely valuable to someone who either does not want or cannot afford new objects.</p></p>#}
-{#        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>#}
-{#    </div>#}
-{#</div>#}
-{##}
-{#<div class="container">#}
-{#    <!-- Example row of columns -->#}
-{#    <div class="row">#}
-{#        <div class="col-md-4">#}
-{#            <h2>Heading</h2>#}
-{##}
-{#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
-{##}
-{#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-{#        </div>#}
-{#        <div class="col-md-4">#}
-{#            <h2>Heading</h2>#}
-{##}
-{#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
-{##}
-{#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-{#        </div>#}
-{#        <div class="col-md-4">#}
-{#            <h2>Heading</h2>#}
-{##}
-{#            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
-{##}
-{#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-{#        </div>#}
-{#    </div>#}
+
+
+
+    <div id="giveForm" class="Form">
+        <h1>Donation</h1>
+        <small>Please submit details for your donated item(s)</small>
+        <form action="/add" method="POST">{% csrf_token %}
+            <input placeholder="Name" type="text" name="user_name" required />
+            <input placeholder="Email" type="email" name="user_email" required />
+            <input placeholder="Zipcode" type="text" name="user_zipcode" required />
+            <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="user_phone" required />
+            <input placeholder="Item" type="text" name="user_item" required />
+            <textarea placeholder="Description" name="user_item_description" ></textarea>
+            <input class="formBtn" type="submit" />
+            <input class="formBtn" type="reset" />
+        </form>
+    </div>
+
+    <div id="getForm" class="Form">
+        <h1>Search</h1>
+        <small>Please submit details for your searched item(s)</small>
+        <form action="/review" method="POST">
+            <input placeholder="Item" type="text" required />
+{#            <input placeholder="Email" type="email" required />#}
+{#            <input placeholder="Zipcode" type="text" required />#}
+{#            <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required />#}
+            <input placeholder="Max Distance (miles)" type="number" required />
+{#            <input placeholder="Title" type="text" required />#}
+{#            <textarea placeholder="Description"></textarea>#}
+            <input class="formBtn" type="submit" />
+            <input class="formBtn" type="reset" />
+        </form>
+    </div>
+
+    {#<div class="content-section-b">#}
+    {##}
+    {#    <div class="container">#}
+    {#        <h2>{{ some_dynamic_value }}</h2>#}
+    {##}
+    {#        <p>Our application will service all three of the Rs in various ways, primarily by connecting people who have objects they no longer need with those who might actually want them.An old cell phone, a television, some furniture, and a mattress are all commonly discarded items that could be extremely valuable to someone who either does not want or cannot afford new objects.</p></p>#}
+    {#        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>#}
+    {#    </div>#}
+    {#</div>#}
+    {##}
+    {#<div class="container">#}
+    {#    <!-- Example row of columns -->#}
+    {#    <div class="row">#}
+    {#        <div class="col-md-4">#}
+    {#            <h2>Heading</h2>#}
+    {##}
+    {#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
+    {##}
+    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
+    {#        </div>#}
+    {#        <div class="col-md-4">#}
+    {#            <h2>Heading</h2>#}
+    {##}
+    {#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
+    {##}
+    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
+    {#        </div>#}
+    {#        <div class="col-md-4">#}
+    {#            <h2>Heading</h2>#}
+    {##}
+    {#            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
+    {##}
+    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
+    {#        </div>#}
+    {#    </div>#}
 
     <hr>
-</div> <!-- /container -->
+    </div>    <!-- /container -->
 {% endblock %}
