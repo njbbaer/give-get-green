@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Give Get Green{% endblock %}
+
+{% block description %}This page is an awesome home page.{% endblock %}
+
+
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="post-header">
+        <div class="container">
+            <div class="list-group">
+                <a href="" class="list-group-item">
+                    <h3 class="list-group-item-heading ">Posts</h3>
+                    {% for e in posts %}
+                        <p class="list-group-item-text list-group-item list-group-item-success">{{ e.user_item }}</p>
+                    {% endfor %}
+                </a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+
+
+    <hr>
+    </div>    <!-- /container -->
+{% endblock %}

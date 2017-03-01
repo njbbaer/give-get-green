@@ -111,6 +111,7 @@ STATICFILES_DIRS = (
     '%s/static-assets' % ABS_PROJECT_ROOT,
 )
 
+print "STATICFILES_DIRS", STATICFILES_DIRS
 
 # List of finder classes that know how to find static files in various
 # locations.

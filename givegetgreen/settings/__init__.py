@@ -20,6 +20,8 @@ The first line of local.py should be:
 try:
     # The first line of local.py should be "from default import *", then it 
     # can override those settings it sees fit.
-    from local import * 
+    from local import *
+    print "import from local"
 except ImportError:
+    print "import from default"
     from default import *
