@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Give Get Green{% endblock %}
+
+{% block description %}This page is an awesome home page.{% endblock %}
+
+
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="post-header">
+        <div class="container-fluid">
+            <div class="list-group">
+                <div class="list-group-item-text list-group-item list-group-item-warning">
+                    <h3 style="color:#27AE60">Posts</h3>
+                    {% for e in posts %}
+                        <div class="panel panel-success panel-shadow">
+                            <div class="panel-heading">
+                                <div class="category">{{ e.user_item_category }}</div> <a class="InterestFormPopUp" data-toggle="modal" data-id="{{ e.user_item_id }}" href="#interestForm">{{ e.user_item }}</a> </div>
+                            <div class="panel-body">
+                                {{ e.user_item_description }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div id="interestForm" class="overlay Form modal">
+        <div class="popup">
+            <button class="close" data-dismiss="modal">×</button>
+            <h1>Interest</h1>
+            <small>Please submit details for your interested item(s)</small>
+            <form action="/delete" method="POST">{% csrf_token %}
+                <input type="hidden" name="user_item_id"  id="user_item_id" value=""/>
+                <input placeholder="Name" type="text" name="user_name" required />
+                <input placeholder="Email" type="email" name="user_email" required />
+                <input placeholder="Zipcode" type="text" name="user_zipcode" required />
+                <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="user_phone" required />
+                <input class="formBtn" type="submit" />
+                <input class="formBtn" type="reset" />
+            </form>
+        </div>
+    </div>
+
+
+
+    </div>    <!-- /container -->
+{% endblock %}

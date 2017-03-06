@@ -11,8 +11,10 @@ class AddPostView(TemplateView):
             user_email = request.POST.get('user_email', '')
             user_zipcode = request.POST.get('user_zipcode', '')
             user_phone = request.POST.get('user_phone', '')
+            user_item_category = request.POST.get('user_item_category', '')
             user_item = request.POST.get('user_item', '')
             user_item_description = request.POST.get('user_item_description', '')
+            user_item_id = 1
 
             form_submitted = {
                 'title': 'form submitted',
@@ -20,6 +22,8 @@ class AddPostView(TemplateView):
                 'user_email':user_email,
                 'user_zipcode':user_zipcode,
                 'user_phone':user_phone,
+                'user_item_id':user_item_id,
+                'user_item_category': user_item_category,
                 'user_item':user_item,
                 'user_item_description':user_item_description
             }
@@ -27,7 +31,7 @@ class AddPostView(TemplateView):
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):
-        print "get"
+
 
         context = {
             'title': 'Give Get Green',

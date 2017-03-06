@@ -18,15 +18,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from givegetgreen.home.views import HomeView
 from givegetgreen.addPost.views import AddPostView
-from givegetgreen.postDetail.views import PostDetailView
+from givegetgreen.deletePost.views import DeletePostView
 
 admin.autodiscover()
 
 urlpatterns = [
     # Homepage
     url(r'^home$', HomeView.as_view(), name='home'),
-    url(r'^add$', AddPostView.as_view(), name='submission'),
-    url(r'^review$', PostDetailView.as_view(), name='list'),
+    url(r'^add$', AddPostView.as_view(), name='add'),
+    url(r'^delete$', DeletePostView.as_view(), name='delete'),
     url(r'^admin/', include(admin.site.urls)),
 
 ]
