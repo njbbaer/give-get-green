@@ -33,6 +33,7 @@
 
 
     <div id="giveForm" class="Form">
+        <button class="close"><a href="/home">×</a></button>
         <h1>Donation</h1>
         <small>Please submit details for your donated item(s)</small>
         <form action="/add" method="POST">{% csrf_token %}
@@ -40,6 +41,20 @@
             <input placeholder="Email" type="email" name="user_email" required />
             <input placeholder="Zipcode" type="text" name="user_zipcode" required />
             <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="user_phone" required />
+            <select class="form-control category-dropdown" name="user_item_category">
+                <option selected disabled>Category</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Appliance">Appliance</option>
+                <option value="Bedding">Bedding</option>
+                <option value="Toys">Toys</option>
+                <option value="Books">Books</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Seasonal">Seasonal</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Household">Household</option>
+                <option value="Kitchen">Kitchen</option>
+                <option value="Sports">Sports</option>
+            </select>
             <input placeholder="Item" type="text" name="user_item" required />
             <textarea placeholder="Description" name="user_item_description" ></textarea>
             <input class="formBtn" type="submit" />
@@ -47,10 +62,25 @@
         </form>
     </div>
 
-    <div id="getForm" class="Form">
+    <div id="searchForm" class="Form">
+        <button class="close"><a href="/home">×</a></button>
         <h1>Search</h1>
         <small>Please submit details for your searched item(s)</small>
-        <form action="/review" method="POST">
+        <form action="/review" method="POST"> {% csrf_token %}
+            <select class="form-control category-dropdown" name="item_category">
+                <option selected disabled>Category</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Appliance">Appliance</option>
+                <option value="Bedding">Bedding</option>
+                <option value="Toys">Toys</option>
+                <option value="Books">Books</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Seasonal">Seasonal</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Household">Household</option>
+                <option value="Kitchen">Kitchen</option>
+                <option value="Sports">Sports</option>
+            </select>
             <input placeholder="Item" type="text" required />
 {#            <input placeholder="Email" type="email" required />#}
 {#            <input placeholder="Zipcode" type="text" required />#}
@@ -63,42 +93,10 @@
         </form>
     </div>
 
-    {#<div class="content-section-b">#}
-    {##}
-    {#    <div class="container">#}
-    {#        <h2>{{ some_dynamic_value }}</h2>#}
-    {##}
-    {#        <p>Our application will service all three of the Rs in various ways, primarily by connecting people who have objects they no longer need with those who might actually want them.An old cell phone, a television, some furniture, and a mattress are all commonly discarded items that could be extremely valuable to someone who either does not want or cannot afford new objects.</p></p>#}
-    {#        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>#}
-    {#    </div>#}
-    {#</div>#}
-    {##}
-    {#<div class="container">#}
-    {#    <!-- Example row of columns -->#}
-    {#    <div class="row">#}
-    {#        <div class="col-md-4">#}
-    {#            <h2>Heading</h2>#}
-    {##}
-    {#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
-    {##}
-    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-    {#        </div>#}
-    {#        <div class="col-md-4">#}
-    {#            <h2>Heading</h2>#}
-    {##}
-    {#            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>#}
-    {##}
-    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-    {#        </div>#}
-    {#        <div class="col-md-4">#}
-    {#            <h2>Heading</h2>#}
-    {##}
-    {#            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
-    {##}
-    {#            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
-    {#        </div>#}
-    {#    </div>#}
 
     <hr>
     </div>    <!-- /container -->
+
+
+
 {% endblock %}
