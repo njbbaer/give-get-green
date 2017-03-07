@@ -6,7 +6,7 @@ Final project for COMPSCI 125/225: Next Generation Search Systems, taught by Ram
 ## Production
 https://give-get-green.herokuapp.com/
 
-Note: `production` branch automatically deploys to Heroku
+Note: `master` branch automatically deploys to Heroku
 
 ## Authors
 Nathaniel Baer <<baern@uci.edu>>  
