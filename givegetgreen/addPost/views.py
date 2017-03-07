@@ -7,7 +7,10 @@ class AddPostView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         print "put"
-        if request.method == 'POST':
+	postdict = dict(request.POST)
+	print postdict
+	## insert to database by submit giveForm
+        if (request.method == 'POST') and ("submit-giveForm" in postdict) :
             user_name = request.POST.get('user_name', '')
             user_email = request.POST.get('user_email', '')
             user_zipcode = request.POST.get('user_zipcode', '')
@@ -29,7 +32,6 @@ class AddPostView(TemplateView):
             posting.save()
 
             form_submitted = {
-                'title': 'form submitted',
                 'user_name':user_name,
                 'user_email':user_email,
                 'user_zipcode':user_zipcode,
@@ -39,8 +41,10 @@ class AddPostView(TemplateView):
                 'user_item':user_item,
                 'user_item_description':user_item_description
             }
-            context = {'posts': [form_submitted]}
-
+            context = {'title': 'Submitted', 'posts': [form_submitted]}
+	## search database by submitting search form
+	elif (request.method == 'POST') and ("submit-searchForm" in postdict) :
+	    context = {'title':'Search results', 'posts':[]}	
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):
