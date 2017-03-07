@@ -19,14 +19,15 @@ from django.contrib import admin
 from givegetgreen.home.views import HomeView
 from givegetgreen.addPost.views import AddPostView
 from givegetgreen.deletePost.views import DeletePostView
+from django.views.generic import RedirectView
 
 admin.autodiscover()
 
 urlpatterns = [
     # Homepage
     url(r'^home$', HomeView.as_view(), name='home'),
+    url(r'^$', RedirectView.as_view(pattern_name='home')),
     url(r'^add$', AddPostView.as_view(), name='add'),
     url(r'^delete$', DeletePostView.as_view(), name='delete'),
     url(r'^admin/', include(admin.site.urls)),
-
 ]
