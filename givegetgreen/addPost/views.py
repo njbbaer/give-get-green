@@ -1,5 +1,6 @@
 #! /usr/bin/env python2.7
 from django.views.generic import TemplateView
+from givegetgreen.posting.models import Posting
 
 class AddPostView(TemplateView):
     template_name = 'viewpost.html'
@@ -16,6 +17,17 @@ class AddPostView(TemplateView):
             user_item_description = request.POST.get('user_item_description', '')
             user_item_id = 1
 
+            posting = Posting(
+                name = user_name,
+                email = user_email,
+                zipcode = user_zipcode,
+                phone = user_phone,
+                item = user_item_category,
+                item_category = user_item_category,
+                item_description = user_item_description
+            )
+            posting.save()
+
             form_submitted = {
                 'title': 'form submitted',
                 'user_name':user_name,
@@ -28,6 +40,7 @@ class AddPostView(TemplateView):
                 'user_item_description':user_item_description
             }
             context = {'posts': [form_submitted]}
+
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):

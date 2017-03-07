@@ -79,6 +79,7 @@ DJANGO_APPS = (
 
 LOCAL_APPS = (
     'givegetgreen.home',
+    'givegetgreen.posting'
 )
 
 EXTERNAL_APPS = (
