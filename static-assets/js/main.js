@@ -26,7 +26,7 @@ $(function() {
     $('#giveForm').fadeIn();
   });
   $('#get-button').click(function() {
-    $('#getForm').fadeIn();
+    $('#searchForm').fadeIn();
   });
 
 

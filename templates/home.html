@@ -57,7 +57,7 @@
             </select>
             <input placeholder="Item" type="text" name="user_item" required />
             <textarea placeholder="Description" name="user_item_description" ></textarea>
-            <input class="formBtn" type="submit" />
+            <input class="formBtn" name="submit-giveForm" type="submit" />
             <input class="formBtn" type="reset" />
         </form>
     </div>
@@ -66,7 +66,7 @@
         <button class="close"><a href="/home">×</a></button>
         <h1>Search</h1>
         <small>Please submit details for your searched item(s)</small>
-        <form action="/review" method="POST"> {% csrf_token %}
+        <form action="/add" method="POST"> {% csrf_token %}
             <select class="form-control category-dropdown" name="item_category">
                 <option selected disabled>Category</option>
                 <option value="Miscellaneous">Miscellaneous</option>
@@ -88,7 +88,7 @@
             <input placeholder="Max Distance (miles)" type="number" required />
 {#            <input placeholder="Title" type="text" required />#}
 {#            <textarea placeholder="Description"></textarea>#}
-            <input class="formBtn" type="submit" />
+            <input class="formBtn" name="submit-searchForm" type="submit" />
             <input class="formBtn" type="reset" />
         </form>
     </div>
