@@ -36,6 +36,10 @@ $(function() {
     $('#InterestFormPopUp').modal('show');
   });
 
+  $( "#giveform" ).submit(function( event ) {
+    alert('Thank you for your donation! Someone will contact you if they are interested.');
+
+  });
 
 
   // $('#interest-submit-btn').click(function(){

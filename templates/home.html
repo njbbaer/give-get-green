@@ -36,7 +36,7 @@
         <button class="close"><a href="/home">×</a></button>
         <h1>Donation</h1>
         <small>Please submit details for your donated item(s)</small>
-        <form action="/add" method="POST">{% csrf_token %}
+        <form action="/" method="POST" id="giveform">{% csrf_token %}
             <input placeholder="Name" type="text" name="user_name" required />
             <input placeholder="Email" type="email" name="user_email" required />
             <input placeholder="Zipcode" type="text" name="user_zipcode" required />
