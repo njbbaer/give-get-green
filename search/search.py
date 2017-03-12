@@ -56,13 +56,13 @@ def create_index(indexdir,database_name):
 		d3=" "
 		x1=row[1].split(" ")
 		for words in x1:
-			d1=d1 + PorterStemmer().stem_word(words) + " "
+			d1=d1 + PorterStemmer().stem_word(words.lower()) + " "
 		x2=row[2].split(" ")
 		for words in x2:
-			d2=d2 + PorterStemmer().stem_word(words) + " "
+			d2=d2 + PorterStemmer().stem_word(words.lower()) + " "
 		x3=row[3].split(" ")
 		for words in x3:
-			d3=d3 + PorterStemmer().stem_word(words) + " "
+			d3=d3 + PorterStemmer().stem_word(words.lower()) + " "
 		writer.add_document(id=row[0],title=d1, description=d2, category=d3, name=(row[4].lower()), address=(row[5].lower()), phone=(row[6].lower()), email=(row[7].lower()))
 		# print row
 	writer.commit()
