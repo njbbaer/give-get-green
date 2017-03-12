@@ -2,6 +2,7 @@
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 from givegetgreen.posting.models import Posting
+from search import search
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -43,5 +44,7 @@ class HomeView(TemplateView):
                 description = user_item_description
             )
             posting.save()
+
+            search.create_index("indexdir", "givegetgreen_db")
 
             return redirect('/home', context);

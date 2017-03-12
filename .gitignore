@@ -40,3 +40,5 @@ givegetgreen_db
 venv/
 
 givegetgreen/posting/migrations/
+
+indexdir/

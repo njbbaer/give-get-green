@@ -44,7 +44,7 @@ def create_database():
 # CREATING AN INDEX OF DATABASE
 def create_index(indexdir,database_name):
 	if not os.path.exists(indexdir):
-		os.mkdir("indexdir")	
+		os.mkdir(indexdir)	
 	conn=sqlite3.connect(database_name);
 	c=conn.cursor();
 	schema = Schema(id=NUMERIC(stored=True),title=TEXT(stored=True),description=TEXT(stored=True),category=TEXT(stored=True),name=STORED, address=STORED,phone=STORED,email=STORED)
@@ -56,13 +56,13 @@ def create_index(indexdir,database_name):
 		d3=" "
 		x1=row[1].split(" ")
 		for words in x1:
-			d1=d1 + PorterStemmer().stem_word(words.lower()) + " "
+			d1=d1 + PorterStemmer().stem(words.lower()) + " "
 		x2=row[2].split(" ")
 		for words in x2:
-			d2=d2 + PorterStemmer().stem_word(words.lower()) + " "
+			d2=d2 + PorterStemmer().stem(words.lower()) + " "
 		x3=row[3].split(" ")
 		for words in x3:
-			d3=d3 + PorterStemmer().stem_word(words.lower()) + " "
+			d3=d3 + PorterStemmer().stem(words.lower()) + " "
 		writer.add_document(id=row[0],title=d1, description=d2, category=d3, name=(row[4].lower()), address=(row[5].lower()), phone=(row[6].lower()), email=(row[7].lower()))
 		# print row
 	writer.commit()
@@ -85,7 +85,7 @@ def query_result(getter_address, search_query):
 	query=""
 	search_list= search_query.split(" ")
 	for words in search_list:
-		words=PorterStemmer().stem_word(words.lower())
+		words=PorterStemmer().stem(words.lower())
 		query= str(query) + str(words) + " OR "
 	query=query+" "
 	search_query=query
