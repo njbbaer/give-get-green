@@ -1,6 +1,7 @@
 #! /usr/bin/env python2.7
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
+from givegetgreen.posting.models import Posting
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -20,11 +21,12 @@ class HomeView(TemplateView):
         }
         postdict = dict(request.POST)
         print postdict
-	## insert to database by submit giveForm
+
+        # insert to database by submit giveForm
         if (request.method == 'POST') and ("submit-giveForm" in postdict) :
             user_name = request.POST.get('user_name', '')
             user_email = request.POST.get('user_email', '')
-            user_zipcode = request.POST.get('user_zipcode', '')
+            user_address = request.POST.get('user_zipcode', '')
             user_phone = request.POST.get('user_phone', '')
             user_item_category = request.POST.get('user_item_category', '')
             user_item = request.POST.get('user_item', '')
@@ -34,11 +36,11 @@ class HomeView(TemplateView):
             posting = Posting(
                 name = user_name,
                 email = user_email,
-                zipcode = user_zipcode,
+                address = user_address,
                 phone = user_phone,
-                item = user_item_category,
-                item_category = user_item_category,
-                item_description = user_item_description
+                title = user_item_category,
+                category = user_item_category,
+                description = user_item_description
             )
             posting.save()
 

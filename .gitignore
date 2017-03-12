@@ -38,3 +38,5 @@ givegetgreen_db
 
 # Virtualenv
 venv/
+
+givegetgreen/posting/migrations/
