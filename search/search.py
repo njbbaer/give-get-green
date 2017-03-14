@@ -18,6 +18,7 @@ from nltk import PorterStemmer
 def populate_database():
 	conn=sqlite3.connect('givegetgreen_db');
 	c=conn.cursor();
+	c.execute('''CREATE TABLE posting_posting (id numeric, title text, description text, category text, name text, address text, phone text, email text)''');
 	c.execute('''INSERT INTO posting_posting VALUES (null, 'mobiles','in very good condition','electronics','a','3800 parkview lane irvine','9495995959','a@uci.edu')''');
 	c.execute('''INSERT INTO posting_posting VALUES (null, 'tv','10 years old','electronics','b','3801 parkview lane irvine','9495995950','b@uci.edu')''');
 	c.execute('''INSERT INTO posting_posting VALUES (null, 'radio','latest latest 1987 classic collection','electronics','a','university of california irvine','9495995951','c@uci.edu')''');
@@ -64,7 +65,7 @@ def create_index(indexdir,database_name):
 
 
 # PARSE A QUERY STRING AND SEARCH RESULTS IN SORTED ORDER
-def query_result(getter_address, search_query):
+def query_result(getter_address, search_query, max_distance):
 
 	database_name="givegetgreen_db"
 	conn=sqlite3.connect(database_name);
@@ -104,11 +105,11 @@ def query_result(getter_address, search_query):
 	getter_address= (getter_address.lower())
 	conn.commit()
 	conn.close()
-	return add_filter(getter_address, address_list, all_fields_list)
+	return add_filter(getter_address, address_list, all_fields_list, max_distance)
 
 
 # FILTER THE RESULTS ACOORDING TO THE ADDRESS
-def add_filter(getter_address, address_list, all_fields_list):
+def add_filter(getter_address, address_list, all_fields_list, max_distance):
 	distances=[]
 	final_list=[]
 	final_all_fields_list=[]
@@ -127,7 +128,7 @@ def add_filter(getter_address, address_list, all_fields_list):
 			location2_ll = (location2.latitude, location2.longitude)
 			# print "in"
 			distance=(vincenty(location1_ll, location2_ll).miles)
-			if distance<=25:
+			if distance<=max_distance:
 				# print words, distance
 				final_list.append(words)
 				final_all_fields_list.append(all_fields_list[i])
@@ -140,7 +141,7 @@ def add_filter(getter_address, address_list, all_fields_list):
 # MAIN FUNCTION
 if __name__=="__main__":
 
-	create_database()
+	populate_database()
 
 	# assign database_name as desired
 	indexdir="indexdir"
@@ -152,6 +153,8 @@ if __name__=="__main__":
 	# hit is the tuple.. use this to display results on web page
 	search_query='latest'
 	getter_address="3801 parkview lane irvine"
-	hits=query_result(getter_address, search_query)
+	max_distance=25
+	hits=query_result(getter_address, search_query, max_distance)
+	print type(hits)
 	for hit in hits:
 		print (hit)
