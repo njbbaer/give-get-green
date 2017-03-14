@@ -257,12 +257,13 @@ textarea { height: 80px; resize: none; }
     width: 100px;
     display: inline-block;
     background: #27AE60;
-    color: #fff;
-    font-weight: 100;
+    color: #fff !important;
+    font-weight: bolder !important;
     font-size: 1.2em;
     border: none;
     height: 35px;
     margin: 10px 20px;
+    color:#fff;
 }
 
 
