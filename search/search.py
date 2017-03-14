@@ -18,19 +18,20 @@ from nltk import PorterStemmer
 def populate_database():
 	conn=sqlite3.connect('givegetgreen_db');
 	c=conn.cursor();
-	c.execute('''CREATE TABLE posting_posting (id numeric, title text, description text, category text, name text, address text, phone text, email text)''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'mobiles','in very good condition','electronics','a','3800 parkview lane irvine','9495995959','a@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'tv','10 years old','electronics','b','3801 parkview lane irvine','9495995950','b@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'radio','latest latest 1987 classic collection','electronics','a','university of california irvine','9495995951','c@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'bottle','plastic bottles 12','recyclable','b','harvard court irvine','9495995952','d@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'jeans','blue denim latest style','clothes','a','stanford court irvine','9495995953','e@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'chair','wooden blue wooden blue 2 latest latest latest latest latest','furniture','b','barranca irvine','9495995954','f@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'pot','very large but still weightless','household','g','2512 walnut avenue tustin','9495995959','g@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'camera','2 years old in very good condition','electronics','h','3901 parkview ln','9495994550','h@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'table','plastic white new','furniture','i','university center irvine','9495995951','i@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'matress','queen size white soft latest','household','j','berkley avenue irvine','9495954952','j@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'shirts','jean wooden blue white red green palo','clothes','k',' 18601 Airport Way, Santa Ana, CA 92707','9495235953','k@uci.edu')''');
-	c.execute('''INSERT INTO posting_posting VALUES (null, 'pants','3 denim shades of blue latest','clothes','l','3601 parkview lane irvine','9495945454','l@uci.edu')''');
+	# name email phone address category description title
+	c.execute('''CREATE TABLE posting_posting (id numeric, name text, email text, phone text, address text, category text, description text, title text )''');
+	c.execute('''INSERT INTO posting_posting VALUES (null,'a', 'a@uci.edu', '9495995959', '3800 parkview lane irvine','electronics', 'in very good condition','mobiles')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'b', 'b@uci.edu', '9495995950','3801 parkview lane irvine','electronics','10 years old','tv')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'c', 'c@uci.edu', '9495995951','university of california irvine','electronics','latest latest 1987 classic collection','radio')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'd', 'd@uci.edu', '9495995952','harvard court irvine','bottle','plastic bottles 12','recyclable')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'e', 'e@uci.edu','9495995953','stanford court irvine','clothes','blue denim latest style','jeans')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'f', 'f@uci.edu','9495995954','barranca irvine','furniture','wooden blue wooden blue 2 latest latest latest latest latest','chair')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'g', 'g@uci.edu','9495995959','2512 walnut avenue tustin','household','very large but still weightless','pot')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'h', 'h@uci.edu','9495994550','3901 parkview ln','electronics','2 years old in very good condition','camera')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'i', 'i@uci.edu','9495995951','university center irvine','furniture','plastic white new','table')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'j', 'j@uci.edu','9495954952','berkley avenue irvine','household','queen size white soft latest','matress')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'k', 'k@uci.edu','9495235953',' 18601 Airport Way, Santa Ana, CA 92707','clothes','jean wooden blue white red green palo','shirts')''');
+	c.execute('''INSERT INTO posting_posting VALUES (null, 'l', 'l@uci.edu','9495945454','3601 parkview lane irvine','clothes','3 denim shades of blue latest','pants')''');
 	conn.commit()
 	conn.close()
 	print "Database created"
