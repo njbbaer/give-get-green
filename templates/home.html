@@ -39,7 +39,7 @@
         <form action="/home" method="POST" id="giveform">{% csrf_token %}
             <input placeholder="Name" type="text" name="user_name" required />
             <input placeholder="Email" type="email" name="user_email" required />
-            <input placeholder="Zipcode" type="text" name="user_zipcode" required />
+            <input placeholder="Address" type="text" name="user_zipcode" required />
             <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="user_phone" required />
             <select class="form-control category-dropdown" name="user_item_category">
                 <option selected disabled>Category</option>
@@ -81,11 +81,11 @@
                 <option value="Kitchen">Kitchen</option>
                 <option value="Sports">Sports</option>
             </select>
-            <input placeholder="Item" type="text" required />
-{#            <input placeholder="Email" type="email" required />#}
-{#            <input placeholder="Zipcode" type="text" required />#}
+            <input placeholder="Item" type="text" name="search_item" required />
+{#            <input placeholder="Email" type="email" name="user_email" required />#}
+{#            <input placeholder="Address" type="text" required />#}
 {#            <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required />#}
-            <input placeholder="Max Distance (miles)" type="number" required />
+            <input placeholder="Max Distance (miles)" type="number" name="distance"required />
 {#            <input placeholder="Title" type="text" required />#}
 {#            <textarea placeholder="Description"></textarea>#}
             <input class="formBtn" name="submit-searchForm" type="submit" />

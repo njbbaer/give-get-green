@@ -11,6 +11,10 @@ class AddPostView(TemplateView):
         context = ''
         
         if (request.method == 'POST') and ("submit-searchForm" in postdict) :
+            search = request.POST.get('search_item', '')
+            category = request.POST.get('item_category', '')
+            distance = request.POST.get('distance', '')
+            
             context = {'title':'Search results', 'posts':[]}	
         return self.render_to_response(context)
 

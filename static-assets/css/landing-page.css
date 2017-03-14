@@ -59,7 +59,7 @@ h6 {
 }
 
 .intro-message > h4 {
-    text-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.6);
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.6);
     color: #82BC63;
 linear-gradient(rgba(196, 102, 0, 0.1), rgba(155, 89, 182, 0.7));
 }
