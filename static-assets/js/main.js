@@ -41,6 +41,9 @@ $(function() {
 
   });
 
+  $('.form-submit').click(function(event){
+    $('.form-submit').val('Great!');
+  })
 
   // $('#interest-submit-btn').click(function(){
   //   $('.interestForm').html('<p>deleted</p>');

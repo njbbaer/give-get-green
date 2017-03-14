@@ -14,6 +14,8 @@ class AddPostView(TemplateView):
             search = request.POST.get('search_item', '')
             category = request.POST.get('item_category', '')
             distance = request.POST.get('distance', '')
+            address = request.POST.get('user_address', '')
+
             
             context = {'title':'Search results', 'posts':[]}	
         return self.render_to_response(context)

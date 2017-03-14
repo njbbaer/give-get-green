@@ -15,7 +15,7 @@
                     {% for e in posts %}
                         <div class="panel panel-success panel-shadow">
                             <div class="panel-heading">
-                                <div class="category">{{ e.user_item_category }}</div> <a class="InterestFormPopUp" data-toggle="modal" data-target="#interestForm" data-id="{{ e.user_item_id }}">{{ e.user_item }}</a> </div>
+                                <div class="category">{{ e.user_item_category }}</div> <a class="InterestFormPopUp" data-toggle="modal" data-target="#interestForm" data-id="{{ e.user_item_id }}" data-username={{e.user_name}} data-useremail={{e.user_email}} data-useraddress = "{{e.user_address}}">{{ e.user_item }}</a> </div>
                             <div class="panel-body">
                                 {{ e.user_item_description }}
                             </div>
