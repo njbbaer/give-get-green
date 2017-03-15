@@ -25,7 +25,13 @@
                                    data-user_item ="{{ e.user_item }}">{{ e.user_item}}</a>
                             </div>
                             <div class="panel-body">
-                                {{ e.user_item_description }}
+                                <a class="InterestFormPopUp" data-toggle="modal" data-target="#interestForm"
+                                   data-user_name="{{ e.user_name }}"
+                                   data-user_email="{{ e.user_email }}"
+                                   data-user_address="{{ e.user_address }}"
+                                   data-user_phone="{{ e.user_phonenumber }}"
+                                   data-user_item_id ="{{ e.user_item_id }}"
+                                   data-user_item ="{{ e.user_item }}">{{ e.user_item_description }}</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -62,7 +68,7 @@
                             </tr>
                             <tr>
                                 <th>Phone</th>
-                                <th id="user_phone"></th>
+                                <th id="user_phonenumber"></th>
                             </tr>
 
                             </tbody>
