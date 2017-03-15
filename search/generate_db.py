@@ -48,8 +48,25 @@ def write_database(postings):
 	c=conn.cursor()
 	for post in postings:
 		# name email phone address category description title
-		c.execute('''INSERT INTO posting_posting VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s')'''
-			% (post['name'], post['email'], post['phone'], post['address'], post['category'], post['description'], post['title']));
+		c.execute('''INSERT INTO posting_posting (
+				id,
+				name,
+				email,
+				phone,
+				address,
+				category,
+				description,
+				title
+			) VALUES (null, '%s', '%s', '%s', '%s', '%s', '%s', '%s')''' % (
+				post['name'],
+				post['email'],
+				post['phone'],
+				post['address'],
+				post['category'],
+				post['description'],
+				post['title']
+			)
+		)
 	conn.commit()
 	conn.close()
 	print str(len(postings)) + " postings written to database"
