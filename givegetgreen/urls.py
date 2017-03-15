@@ -26,7 +26,7 @@ admin.autodiscover()
 urlpatterns = [
     # Homepage
     url(r'^home$', HomeView.as_view(), name='home'),
-    url(r'^$', RedirectView.as_view(pattern_name='home')),
+    url(r'^$', RedirectView.as_view(pattern_name='home', permanent=False)),
     url(r'^add$', AddPostView.as_view(), name='add'),
     url(r'^delete$', DeletePostView.as_view(), name='delete'),
     url(r'^admin/', include(admin.site.urls)),
