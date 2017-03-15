@@ -100,7 +100,7 @@ def query_result(getter_address, search_query, max_distance):
 			x=int(words['id'])
 			x=(x,)
 			# print x
-			for row in c.execute('SELECT * FROM posting_posting where id= ? ',x ):
+			for row in c.execute('SELECT id FROM posting_posting where id= ? ',x ):
 				all_fields_list.append(row);
 	getter_address= (getter_address.lower())
 	conn.commit()
