@@ -19,8 +19,8 @@ def generate_postings(count):
 			'address': faker.city() + ", " + faker.state(),
 			'email': faker.email(),
 			'phone': random.randint(1000000000, 9999999999),
-			'title': " ".join(rw.random_words(count=2)),
-			'description': " ".join(rw.random_words(count=8)),
+			'title': " ".join(rw.random_words(count=random.randint(1, 3))),
+			'description': " ".join(rw.random_words(count=random.randint(3, 9))),
 			'category': random.choice(CATEGORIES),
 		}
 		postings.append(posting)
