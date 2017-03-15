@@ -1,6 +1,7 @@
 #! /usr/bin/env python2.7
 from django.views.generic import TemplateView
 from search import search
+from givegetgreen.posting.models import Posting
 
 class AddPostView(TemplateView):
     template_name = 'viewpost.html'
@@ -22,17 +23,18 @@ class AddPostView(TemplateView):
 
             posts = []
             for result in results:
-                post = {
-                    'user_item_id': result[0],
-                    'user_name': result[1],
-                    'user_email': result[2],
-                    'user_phonenumber': result[3],
-                    'user_address': result[4],
-                    'user_item_category': result[5],
-                    'user_item_description': result[6],
-                    'user_item': result[7],
+                post_db = Posting.objects.get(pk=result)
+                post_dict = {
+                    'user_item_id': post_db.id,
+                    'user_name': post_db.name,
+                    'user_email': post_db.email,
+                    'user_phonenumber': post_db.phone,
+                    'user_address': post_db.address,
+                    'user_item_category': post_db.category,
+                    'user_item_description': post_db.description,
+                    'user_item': post_db.title,
                 }
-                posts.append(post)
+                posts.append(post_dict)
 
             context = {'title':'Search results', 'posts':posts}	
         return self.render_to_response(context)
