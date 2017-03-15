@@ -20,7 +20,7 @@
                                    data-user_name="{{ e.user_name }}"
                                    data-user_email="{{ e.user_email }}"
                                    data-user_address="{{ e.user_address }}"
-                                   data-user_phone="{{ e.user_phonenumber }}"
+                                   data-user_phonenumber="{{ e.user_phonenumber }}"
                                    data-user_item_id ="{{ e.user_item_id }}"
                                    data-user_item ="{{ e.user_item }}">{{ e.user_item}}</a>
                             </div>
@@ -29,7 +29,7 @@
                                    data-user_name="{{ e.user_name }}"
                                    data-user_email="{{ e.user_email }}"
                                    data-user_address="{{ e.user_address }}"
-                                   data-user_phone="{{ e.user_phonenumber }}"
+                                   data-user_phonenumber="{{ e.user_phonenumber }}"
                                    data-user_item_id ="{{ e.user_item_id }}"
                                    data-user_item ="{{ e.user_item }}">{{ e.user_item_description }}</a>
                             </div>
@@ -51,7 +51,11 @@
                     <div class="list-group-item-text list-group-item list-group-item-warning">
                         <table class="table table-condensed">
                             <thead>
-                                <tr><th rowspan=2 id="user_item"></th></tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <th id="user_item"></th>
+
+                                </tr>
                             </thead>
                             <tbody>
                             <tr>
