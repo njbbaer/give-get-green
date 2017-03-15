@@ -10,6 +10,20 @@ NUM_GENERATE = 100
 CATEGORIES = ['miscellaneous', 'appliance', 'bedding', 'toys', 'books', 'clothing',
 	'seasonal', 'electronics', 'household', 'kitchen', 'sports']
 
+LOCATIONS = [
+	'university of california irvine',
+	'university of california san diego',
+	'university of california davis',
+	'university of california los angeles',
+	'university of california berkeley',
+	'university of california santa barbara',
+	'university of california berkley',
+	'university of california merced',
+	'university of california riverside',
+	'university of california san francisco',
+	'university of california santa cruz',
+]
+
 def generate_postings(count):
 	postings = []
 	for i in range(count):
@@ -18,12 +32,12 @@ def generate_postings(count):
 
 		posting = {
 			'name': faker.name(),
-			'address': faker.city() + ", " + faker.state(),
 			'email': faker.email(),
 			'phone': random.randint(1000000000, 9999999999),
 			'title': " ".join(rw.random_words(count=random.randint(1, 3))),
 			'description': " ".join(rw.random_words(count=random.randint(3, 9))),
 			'category': random.choice(CATEGORIES),
+			'address': random.choice(LOCATIONS),
 		}
 		postings.append(posting)
 	return postings

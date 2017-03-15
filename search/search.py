@@ -115,7 +115,7 @@ def add_filter(getter_address, address_list, all_fields_list, max_distance):
 	final_all_fields_list=[]
 	geolocator = Nominatim()		
 	location1 = geolocator.geocode(str(getter_address))
-	if len(location1)==0:
+	if len(location1)==None:
 		return
 	location1_ll = (location1.latitude, location1.longitude)
 	# print len(address_list)
