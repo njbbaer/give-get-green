@@ -43,7 +43,19 @@ $(function() {
 
   $('.form-submit').click(function(event){
     $('.form-submit').val('Great!');
-  })
+  });
+
+  $('.InterestFormPopUp').click(function(){
+
+    $('#user_name').text($(this).data('user_name'));
+    $('#user_address').text($(this).data('user_address'));
+    $('#user_email').text($(this).data('user_email'));
+    $('#user_phonenumber').text($(this).data('user_phonenumber'));
+    $('#user_item').text($(this).data('user_item'));
+    $("#user_item_id").val( $(this).data('user_item_id'));
+    $('#InterestFormPopUp').modal('show');
+  });
+
 
   // $('#interest-submit-btn').click(function(){
   //   $('.interestForm').html('<p>deleted</p>');

@@ -15,7 +15,15 @@
                     {% for e in posts %}
                         <div class="panel panel-success panel-shadow">
                             <div class="panel-heading">
-                                <div class="category">{{ e.user_item_category }}</div> <a class="InterestFormPopUp" data-toggle="modal" data-target="#interestForm" data-id="{{ e.user_item_id }}" data-username={{e.user_name}} data-useremail={{e.user_email}} data-useraddress = "{{e.user_address}}">{{ e.user_item }}</a> </div>
+                                <div class="category">{{ e.user_item_category }}</div>
+                                <a class="InterestFormPopUp" data-toggle="modal" data-target="#interestForm"
+                                   data-user_name="{{ e.user_name }}"
+                                   data-user_email="{{ e.user_email }}"
+                                   data-user_address="{{ e.user_address }}"
+                                   data-user_phone="{{ e.user_phonenumber }}"
+                                   data-user_item_id ="{{ e.user_item_id }}"
+                                   data-user_item ="{{ e.user_item }}">{{ e.user_item}}</a>
+                            </div>
                             <div class="panel-body">
                                 {{ e.user_item_description }}
                             </div>
@@ -31,33 +39,57 @@
         <div class="popup">
             <button class="close" data-dismiss="modal" >×</button>
             <h1>Interest</h1>
-            <small>Please submit details for your interested item(s)</small>
-            <form action="/delete" method="POST">{% csrf_token %}
-                <input placeholder="Item_id" type="hidden" name="request_user_item_id"  id="user_item_id" value=""/>
-                <input placeholder="Name" type="text" name="request_user_name" required />
-                <input placeholder="Email" type="email" name="request_user_email" required />
-                <input placeholder="Address" type="text" name="request_user_zipcode" required />
-                <input placeholder="Phone (xxx-xxx-xxxx)" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" name="request_user_phone" required />
+            <small>Please review contact info for your interested item(s)</small>
+            <div class="container-fluid">
+                <div class="list-group">
+                    <div class="list-group-item-text list-group-item list-group-item-warning">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr><th rowspan=2 id="user_item"></th></tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <th id="user_name"></th>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <th id="user_address"></th>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th id="user_email"></th>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <th id="user_phone"></th>
+                            </tr>
 
-                <input class="formBtn" type="submit" />
-                <input class="formBtn" type="reset" />
-            </form>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <form action="/delete" method="POST">{% csrf_token %}
+                    <input placeholder="Item_id" type="hidden" name="request_user_item_id"  id="user_item_id" value=""/>
+                    <input class="formBtn" type="submit" />
+                </form>
+            </div>
         </div>
     </div>
-
     <script>
-    $(document).ready(function() {
-        $('#interestForm').on('show.bs.modal', function (event) {
+{#    $(document).ready(function() {#}
+{#        $('#interestForm').on('show.bs.modal', function (event) {#}
 
-            var title = $(event.relatedTarget); // Button that triggered the modal
-            var id = title.data('id'); // Extract info from data-* attributes
-            alert(id);
+{#            var title = $(event.relatedTarget); // Button that triggered the modal#}
+{#            var id = title.data('id'); // Extract info from data-* attributes#}
+{#            alert(id);#}
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this);
-            modal.find('#user_item_id').val('New message ');
-        });
-    });
+{#            var modal = $(this);#}
+{#            modal.find('#user_item_id').val('New message ');#}
+{#        });#}
+{#    });#}
 {##}
 {#              function interestedClicked(id){#}
 {#    var itemId = $(this).data('id');#}
