@@ -4,10 +4,14 @@ django-appconf==1.0.2
 django-compressor==1.5
 django-debug-toolbar==1.3.2
 django-extensions==1.5.5
+geopy==1.11.0
 gunicorn==19.6.0
 ipython==3.2.0
+nltk==3.2.2
 packaging==16.8
 pyparsing==2.1.10
 six==1.9.0
 sqlparse==0.1.15
+stemming==1.0.1
 whitenoise==3.3.0
+Whoosh==2.7.4
