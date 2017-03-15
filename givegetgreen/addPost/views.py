@@ -23,17 +23,18 @@ class AddPostView(TemplateView):
             posts = []
             for result in results:
                 post = {
-                    'user_name': result[0],
-                    'user_email': result[1],
-                    'user_phonenumber': result[2],
-                    'user_address': result[3],
-                    'user_item_category': result[4],
-                    'user_item_description': result[5],
-                    'user_item': result[6],
+                    'user_item_id': result[0],
+                    'user_name': result[1],
+                    'user_email': result[2],
+                    'user_phonenumber': result[3],
+                    'user_address': result[4],
+                    'user_item_category': result[5],
+                    'user_item_description': result[6],
+                    'user_item': result[7],
                 }
                 posts.append(post)
 
-            context = {'title':'Search results', 'posts':post}	
+            context = {'title':'Search results', 'posts':posts}	
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):

@@ -3,6 +3,8 @@ from faker import Factory
 import random
 import sqlite3
 
+import search
+
 NUM_GENERATE = 100
 
 CATEGORIES = ['miscellaneous', 'appliance', 'bedding', 'toys', 'books', 'clothing',
@@ -43,3 +45,4 @@ if __name__ == '__main__':
 
 	postings = generate_postings(NUM_GENERATE)
 	write_database(postings)
+	search.create_index("indexdir", "givegetgreen_db")
