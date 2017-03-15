@@ -42,3 +42,5 @@ venv/
 givegetgreen/posting/migrations/
 
 indexdir/
+
+search_results.txt
