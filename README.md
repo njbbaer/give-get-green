@@ -7,8 +7,11 @@ Final project for COMPSCI 125/225: Next Generation Search Systems, taught by Ram
 Command:
 
 `$ python givegetgreen/manage.py makemigrations`
+
 `$ python givegetgreen/manage.py migrate`
+
 `$ python search/generate_db.py`
+
 `$ python givegetgreen/manage.py runserver`
 
 
