@@ -6,12 +6,11 @@ Final project for COMPSCI 125/225: Next Generation Search Systems, taught by Ram
 ## Developement
 Command:
 
-`
-$ python givegetgreen/manage.py makemigrations
-$ python givegetgreen/manage.py migrate
-$ python search/generate_db.py
-$ python givegetgreen/manage.py runserver
-`
+`$ python givegetgreen/manage.py makemigrations`
+`$ python givegetgreen/manage.py migrate`
+`$ python search/generate_db.py`
+`$ python givegetgreen/manage.py runserver`
+
 
 ## Production
 https://give-get-green.herokuapp.com/
