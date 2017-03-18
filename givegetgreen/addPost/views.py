@@ -22,19 +22,20 @@ class AddPostView(TemplateView):
             results = search.query_result(address, query, distance)
 
             posts = []
-            for result in results:
-                post_db = Posting.objects.get(pk=result)
-                post_dict = {
-                    'user_item_id': post_db.id,
-                    'user_name': post_db.name,
-                    'user_email': post_db.email,
-                    'user_phonenumber': post_db.phone,
-                    'user_address': post_db.address,
-                    'user_item_category': post_db.category,
-                    'user_item_description': post_db.description,
-                    'user_item': post_db.title,
-                }
-                posts.append(post_dict)
+            if results is not None:
+                for result in results:
+                    post_db = Posting.objects.get(pk=result)
+                    post_dict = {
+                        'user_item_id': post_db.id,
+                        'user_name': post_db.name,
+                        'user_email': post_db.email,
+                        'user_phonenumber': post_db.phone,
+                        'user_address': post_db.address,
+                        'user_item_category': post_db.category,
+                        'user_item_description': post_db.description,
+                        'user_item': post_db.title,
+                    }
+                    posts.append(post_dict)
 
             context = {'title':'Search results', 'posts':posts}	
         return self.render_to_response(context)
