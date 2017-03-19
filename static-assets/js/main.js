@@ -56,6 +56,10 @@ $(function() {
     $('#InterestFormPopUp').modal('show');
   });
 
+  $('#interestForm-submit').click(function{
+    alert('Thank you for your interest!');
+  })
+
 
   // $('#interest-submit-btn').click(function(){
   //   $('.interestForm').html('<p>deleted</p>');
