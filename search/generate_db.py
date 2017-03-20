@@ -5,7 +5,7 @@ import sqlite3
 
 import search
 
-NUM_GENERATE = 100
+NUM_GENERATE = 1000
 
 CATEGORIES = ['miscellaneous', 'appliance', 'bedding', 'toys', 'books', 'clothing',
 	'seasonal', 'electronics', 'household', 'kitchen', 'sports']
