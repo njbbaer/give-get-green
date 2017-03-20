@@ -39,12 +39,12 @@ class HomeView(TemplateView):
                               email = user_email,
                               address = user_address,
                               phone = user_phone,
-                              title = user_item_category,
+                              title = user_item,
                               category = user_item_category,
                               description = user_item_description
                               )
-                              posting.save()
+            posting.save()
                               
-                              search.create_index("indexdir", "givegetgreen_db")
+            search.create_index("indexdir", "givegetgreen_db")
                               
-            return redirect('/home', context);
+        return redirect('/home', context);
