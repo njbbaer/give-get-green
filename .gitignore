@@ -34,7 +34,7 @@ pip-log.txt
 .mr.developer.cfg
 
 # Database
-givegetgreen_db
+# givegetgreen_db
 
 # Virtualenv
 venv/
