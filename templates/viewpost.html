@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <form action="/delete" method="POST">{% csrf_token %}
+                <form action="/delete" method="POST" id="interestFormDetail">{% csrf_token %}
                     <input placeholder="Item_id" type="hidden" name="request_user_item_id"  id="user_item_id" value=""/>
                     <input class="formBtn" type="submit" id="interestForm-submit"/>
                 </form>
