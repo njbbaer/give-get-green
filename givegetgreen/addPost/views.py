@@ -18,6 +18,8 @@ class AddPostView(TemplateView):
             distance = int(request.POST.get('distance', ''))
             address = request.POST.get('user_address', '')
 
+            search.create_index("indexdir", "givegetgreen_db")
+
             query = category + " " + search_item
             results = search.query_result(address, query, distance)
 
